@@ -18,9 +18,15 @@ public class RedisConfig{
 
     @Bean
     public JedisConnectionFactory jedisConnectionFactory(){
-        RedisStandaloneConfiguration redisStandaloneConfiguration= new RedisStandaloneConfiguration("127.0.0.1",6379);
-        // redisStandaloneConfiguration.setHostName("127.0.0.1");
-        // redisStandaloneConfiguration.setPort(6379);
+        RedisStandaloneConfiguration redisStandaloneConfiguration= new RedisStandaloneConfiguration();
+        // redis cloud url (full url also include port : redis-13738.c8.us-east-1-4.ec2.cloud.redislabs.com:13738)
+        // redisStandaloneConfiguration.setHostName("redis-13738.c8.us-east-1-4.ec2.cloud.redislabs.com");
+        // redisStandaloneConfiguration.setPort(13738);// redis cloud port 
+        // redisStandaloneConfiguration.setPassword("v32QwpFeUsqTHKjqxVuEvexwHRh0zLhi");
+
+        redisStandaloneConfiguration.setHostName("172.30.15.74");
+        redisStandaloneConfiguration.setPort(16993);
+        redisStandaloneConfiguration.setPassword("4t50Q5Na");
         JedisConnectionFactory jedisConnectionFactory= new JedisConnectionFactory(redisStandaloneConfiguration);
         return jedisConnectionFactory;
     }

@@ -1,7 +1,5 @@
 FROM openjdk:17
 
-ADD target/Redis-OKD.jar Redis-OKD.jar
+ADD target/redis-openshift.jar redis-openshift.jar
 
-EXPOSE 8080
-
-ENTRYPOINT ["java","-jar","Redis-OKD.jar"]
+ENTRYPOINT ["java","-jar","redis-openshift.jar"]
